@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html >
+<body  align="center">
+<head>
+  <meta charset="UTF-8">
+  <title>Recommend top 5 products</title>
+</head>
+
+<body>
+ <div class="login">
+	<h1 style="text-align:center">Sentiment Based Product Recommendation system</h1>
+
+    <form align="center" action="{{ url_for('predict')}}" method="post">
+		<label for ="user_name"> Please Enter Username :</label>
+    	<input  id ="user_name" type="text" style="text-align:center" name="user_name"  required="required" />
+        <button id="make_prediction" type="submit" >Predict top 5 product</button>
+    </form>
+
+	<div>
+		<h3> Top 5 products for you are : </h3>
+		<ul>
+		{% for product in (top_5_products) %}
+		  <li>{{product}}</li>
+		{% endfor %}  
+		</ul>
+	</div>
+
+ </div>
+
+
+</body>
+</html>
